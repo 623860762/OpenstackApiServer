@@ -13,8 +13,8 @@ for val in a:
 
 
 #httpPost请求：
-url = 'http://192.168.4.102:5000/v3/auth/tokens'
-#url = 'http://blog.csdn.net/jiedushi/article/details/6608155'
+#url = 'http://192.168.4.102:5000/v3/auth/tokens'
+url = 'http://blog.csdn.net/jiedushi/article/details/6608155'
 postData = {
     "auth": {
         "identity": {
