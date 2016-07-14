@@ -13,8 +13,9 @@ for val in a:
 
 
 #httpPost请求：
-#url = 'http://192.168.4.102:5000/v3/auth/tokens'
-url = 'http://blog.csdn.net/jiedushi/article/details/6608155'
+url = 'http://172.17.1.10:5000/v3/auth/tokens'
+#url = 'http://api.douban.com/v2/book/isbn/9787218087351'
+#url = "http://192.168.4.102:5000/v3"
 postData = {
     "auth": {
         "identity": {
@@ -33,5 +34,6 @@ postData = {
         }
     }
 }
+headers = {"Content-type": "application/json","Accept": "text/plain"}
 httpUrlRequest = HttpUrlRequest()
-httpUrlRequest.post(url, postData)
+resHeaders = httpUrlRequest.getResponseHeaders(url,postData,headers)
