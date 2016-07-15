@@ -17,6 +17,7 @@ class OpenstackApiServer:
     def test(self,tokenId, url, postData):
         ob1 = HttpUrlRequest()
         headers = {"Content-type": "application/json","Accept": "text/plain","X-Auth-Token": tokenId}
+        print headers
         res = ob1.httpRequest(url,postData,headers)
         print res
     #启动实例
@@ -56,24 +57,24 @@ postData = {
             ],
             "password": {
                 "user": {
-                    "name": "admin",
                     "domain": {
+                        "id":"default",
                         "name": "default"
                     },
+                    "name":"admin",
                     "password": "123456"
                 }
+            },
+        },
+        "scope": {
+            "project": {
+                "id":"132ba670ea1146528f23f31aa3e2b221"
             }
         }
     }
 }
 openstackApiServer = OpenstackApiServer()
 tokenId = openstackApiServer.getTokenId(url,postData)
-url = 'http://172.17.1.10:5000/v3/roles'
-postData = {
-    "group": {
-        "description": "Contract developers",
-        "domain_id": "default",
-        "name": "Contract developers"
-    }
-}
+url = 'http://172.17.1.10:5000/v3/services'
+postData = ""
 openstackApiServer.test(tokenId,url,postData)
